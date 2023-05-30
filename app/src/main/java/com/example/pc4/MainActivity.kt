@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pc4.ui.theme.Pc4Theme
 
@@ -33,5 +35,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun system4() {
     val navController = rememberNavController()
-
+    NavHost(navController = navController, startDestination =
+    Home.Route){
+        composable(Home.Route){
+            HomeScreen(navController)
+        }
+        composable(Second.Route){
+            SecondScreen()
+        }
+    }
 }
